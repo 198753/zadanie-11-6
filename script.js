@@ -9,11 +9,11 @@ function randomString() {
 	return str;
 }
 
-function Column(name) {
-	var self = this; // useful for nested functions
-
-	this.id = randomString();
-	this.name = name;
+function Column(name) {
+	var self = this 
+
+	this.id = randomString();
+	this.name = name;
 	this.$element = createColumn();
 
 	function createColumn() {
@@ -38,8 +38,7 @@ function Column(name) {
 
 	return $column;
 	}
-}
-
+};
 
 Column.prototype = {
 	addCard: function(card) {
@@ -50,19 +49,27 @@ Column.prototype = {
 	}
 };
 
-function createCard() {
-var $card = $('<li>').addClass('card');
-var $cardDescription = $('<p>').addClass('card-description').text(self.description);
-var $cardDelete = $('<button>').addClass('btn-delete').text('x');
+function Card(description) {
+	var self = this;
 
-$cardDelete.click(function(){
-	self.removeCard();
-});
+this.id = randomString();
+this.description = description;
+this.$element = createCard();
 
-$card.append($cardDelete)
-	.append($cardDescription);
+	function createCard() {
+	var $card = $('<li>').addClass('card');
+	var $cardDescription = $('<p>').addClass('card-description').text(self.description);
+	var $cardDelete = $('<button>').addClass('btn-delete').text('x');
 
-return $card;
+	$cardDelete.click(function(){
+		self.removeCard();
+	});
+
+	$card.append($cardDelete)
+		.append($cardDescription);
+
+	return $card;
+	}
 }
 
 Card.prototype = {
@@ -83,7 +90,7 @@ var board = {
 function initSortable() {
 	$('.column-card-list').sortable({
 		connectWith: '.column-card-list',
-		placeholder: 'card-placeholder'
+		placeholder: 'card-placeholder' 
 	}).disableSelection();
 }
 
