@@ -28,7 +28,11 @@ $(function() {
 		})
 
 		$columnAddCard.click(function() {
-			self.addCard(new Card(prompt("Enter the name of the card")));
+			var name = prompt("Enter the name of the card");
+			var card = new Card;
+				if (name != null) {
+			self.addCard(card(name));
+		}
 		});
 
 		$column.append($columnTitle)
@@ -97,8 +101,10 @@ $(function() {
 	$('.create-column')
 		.click(function(){
 			var name = prompt('Enter a column name');
-			var column = new Column(name);
+				if (name != null) {
+				var column = new Column(name);	
 				board.addColumn(column);
+			}
 	});
 
 	// TWORZENIE KOLUMN
