@@ -29,10 +29,9 @@ $(function() {
 
 		$columnAddCard.click(function() {
 			var name = prompt("Enter the name of the card");
-			var card = new Card;
 				if (name != null) {
-			self.addCard(card(name));
-		}
+				self.addCard(new Card(name));
+				}
 		});
 
 		$column.append($columnTitle)
